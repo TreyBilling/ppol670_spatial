@@ -378,7 +378,7 @@ invisible(dev.off())
 
 Unlike our filled states, for example, the grid-cell boundaries in this raster are arbitrary. Larger grids just mean coarser resolution. Technically, rasters are just __images__. You can think of raster grid-cells as just like pixels on a computer screen or a photograph -- the more you have, the clearer the image is. 
 
-Rasters are commonly used to store images from satellites like climate/weather patterns. To make things more concrete, let's pull in some example rasters from the `raster` package, which is the workhorse package for rasters in `R`. The `temperautre` object holds a raster for mean temperature each of the 12 months, but I'm going to pull out just the layer for April. Note that temperature is stored as Celsius * 10, so I divided by 10 to rescale.
+Rasters are commonly used to store images from satellites like climate/weather patterns. To make things more concrete, let's pull in some example rasters from the `raster` package, which is the workhorse package for rasters in `R`. The `temperature` object holds a raster for mean temperature each of the 12 months, but I'm going to pull out just the layer for April. Note that temperature is stored as Celsius * 10, so I divided by 10 to rescale.
 
 ```{r}
 temperature <- raster::getData('worldclim', var='tmean', res=5)
@@ -429,7 +429,6 @@ df_spatial_join_agg <-
   mutate(.pred = exp(predict(lm1)),
          residual = .pred - total_cases)
 ```
-
 
 
 Let's build a `cowplot` summarizing the results:
